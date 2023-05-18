@@ -3,26 +3,27 @@ import './searchh.scss'
 import { AsyncPaginate } from 'react-select-async-paginate'
 import { weatherApi, API_URl } from '../api'
 
-const Search = (searchCountry) => {
+const Search = ({searchCountry}) => {
     const [search, setSearch] = useState(null)
 
-    const inputValue =  (inputValue) => {
-
-        // try {
-        //     const response = await fetch(`${API_URl}/cities?minPopulation=1000000&namePrefix=${inputValue}`, weatherApi);
-        //     const result = await response.json();
-        //     console.log(result);
-        // } catch (error) {
-        //     console.error(error);
-        // }
-        
+    const inputValue = (inputValue) => {
 
         return fetch(
-            `${API_URl}/cities?minPopulation=1000&namePrefix=${inputValue}`,
-            weatherApi  
+            `${API_URl}/cities?minPopulation=100000&namePrefix=${inputValue}`,
+            weatherApi
         )
             .then((response) => response.json())
-            .then((response) => {console.log(response)});
+            .then((response) => {
+                return {
+                    options: response.data.map((city) => {
+                        return{
+                            value: `${city.latitude} ${city.longitude}`,
+                            label:`${city.name}, ${city.countryCode}`,
+                        }
+                    })
+                }
+             })
+            .catch((error) => console.error(error))
     };
 
     const searchCgange = (searchData) => {
