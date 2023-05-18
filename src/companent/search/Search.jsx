@@ -21,8 +21,6 @@ const Search = (searchCountry) => {
             `${API_URl}/cities?minPopulation=1000&namePrefix=${inputValue}`,
             weatherApi  
         )
-            
-            
             .then((response) => response.json())
             .then((response) => {console.log(response)});
     };
