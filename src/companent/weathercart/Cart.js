@@ -1,10 +1,24 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './cart.scss'
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 
 const Cart = () => {
+
+    useEffect(() => {
+        AOS.init({
+            offset: 630,
+            duration: 800,
+            delay: 260,
+        });
+        AOS.refresh();
+    }, []);
+
     return (
         <>
-            <div className='cart'>
+            <div className='cart' data-aos="fade-up"
+                data-aos-anchor-placement="center-bottom">
                 <div className='ortala'>
                     <div className='cart_up'>
                         <div className='name'>
@@ -39,13 +53,14 @@ const Cart = () => {
                             <div className='top'>
                                 <p>Pressure</p>
                                 <p> 15hPa</p>
-                            </div> 
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </>
     )
+
 }
 
 export default Cart
