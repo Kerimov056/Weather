@@ -37,7 +37,7 @@ const Search = ({searchCountry}) => {
                     placeholder="Search"  //bu axtaris inputunun icindeki yazidir
                     debounceTimeout={600} //bu user axtaris etdikden sonra nece saniye gozdemesidir (0.6s)
                     value={search}
-                    onChange={searchCgange}
+                    onChange={searchCgange} //onChnge olan vaxt
                     loadOptions={inputValue} //bu axtaris matorudu deye bilerik
                 />
             </div>
