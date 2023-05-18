@@ -35,7 +35,7 @@ const Search = ({searchCountry}) => {
             <div className='conteiner'>
                 <AsyncPaginate
                     placeholder="Search"  //bu axtaris inputunun icindeki yazidir
-                    debounceTimeout={600} //bu user axtaris etdikden sonra nece saniye gozdemesidir (0.6s)
+                    debounceTimeout={1000} //bu user axtaris etdikden sonra nece saniye gozdemesidir (0.6s)
                     value={search}
                     onChange={searchCgange} //onChange olan vaxt
                     loadOptions={inputValue} //bu axtaris matorudu deye bilerik

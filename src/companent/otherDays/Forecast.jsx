@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './forecast.scss'
 import {Accordion,AccordionItem,AccordionItemHeading,AccordionItemButton,AccordionItemPanel} from "react-accessible-accordion";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 {/* Accordion nedir?  Accordionlar hazir bir funkisyalardir! */}
 {/* Accordion :her hansisa bir divi daraltmasini saglamak icin bir companentdir. */}
@@ -20,6 +22,16 @@ const WEEK_DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Satu
 
 
 const Forecast = ({data}) => {
+
+    useEffect(() => {
+        AOS.init({
+            offset: 630,
+            duration: 800,
+            delay: 260,
+        });
+        AOS.refresh();
+    }, []);
+
     const toDay = new Date().getDay()
     let clack = WEEK_DAYS.splice(toDay,WEEK_DAYS.length).concat(WEEK_DAYS.slice(0,toDay));
 
@@ -31,7 +43,8 @@ const Forecast = ({data}) => {
                     <AccordionItem key={id}>
                             <AccordionItemHeading>
                             <AccordionItemButton>
-                                <div className='on_esas'>
+                                <div className='on_esas' data-aos="fade-up"
+                data-aos-anchor-placement="center-bottom">
                                     <div className='left'>
                                         <img src={`icon/${item.weather[0].icon}.png`}></img>
                                         <span>{clack[id]}</span>
