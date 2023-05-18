@@ -9,8 +9,10 @@ function App() {
   }
   return (
     <>
-      <Search searchCountry={searchData}/>
-      <Cart/>
+      <Search searchCountry={searchData} />
+      <div className='app'>
+        <Cart />
+      </div>
     </>
   );
 }
