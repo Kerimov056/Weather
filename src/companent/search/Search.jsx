@@ -9,7 +9,7 @@ const Search = ({searchCountry}) => {
     const inputValue = (inputValue) => {
 
         return fetch(
-            `${API_URl}/cities?minPopulation=100000&namePrefix=${inputValue}`,
+            `${API_URl}/cities?minPopulation=1000&namePrefix=${inputValue}`,
             weatherApi
         )
             .then((response) => response.json())
@@ -37,7 +37,7 @@ const Search = ({searchCountry}) => {
                     placeholder="Search"  //bu axtaris inputunun icindeki yazidir
                     debounceTimeout={600} //bu user axtaris etdikden sonra nece saniye gozdemesidir (0.6s)
                     value={search}
-                    onChange={searchCgange} //onChnge olan vaxt
+                    onChange={searchCgange} //onChange olan vaxt
                     loadOptions={inputValue} //bu axtaris matorudu deye bilerik
                 />
             </div>

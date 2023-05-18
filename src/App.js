@@ -12,8 +12,8 @@ function App() {
 
     const [lat, lon] = data.value.split(" ");
 
-   const weatherFetch = fetch(`${WEATHER_API}/weather?lat=${lat}&lon=${lon}&appid=${MY_API_KEY}`);
-   const foresFetch = fetch(`${WEATHER_API}/forecast?lat=${lat}&lon=${lon}&appid=${MY_API_KEY}`);
+   const weatherFetch = fetch(`${WEATHER_API}/weather?lat=${lat}&lon=${lon}&appid=${MY_API_KEY}&units=metric`);
+   const foresFetch = fetch(`${WEATHER_API}/forecast?lat=${lat}&lon=${lon}&appid=${MY_API_KEY}&units=metric`);
 
    Promise.all([weatherFetch,foresFetch])
    .then(async (response) =>{
@@ -33,9 +33,10 @@ function App() {
     <>
      <Search  searchCountry = {searchData}/>
          <div className='app'>
-          <Cart />
-        </div>
-    </>
+         { weather &&  <Cart data={weather} />}   {/* Burdada weatherin varligini yoxlayiriq */}
+        </div>                                    {/* Weather !== null ve weather !== undefined  */}
+                                                  {/* <Cart data={weather} Render olunur  */}
+    </>                                       
   );
 }
 

@@ -4,7 +4,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 
-const Cart = () => {
+const Cart = ({data}) => {
 
     useEffect(() => {
         AOS.init({
@@ -22,16 +22,16 @@ const Cart = () => {
                 <div className='ortala'>
                     <div className='cart_up'>
                         <div className='name'>
-                            <h3>Baku</h3>
-                            <h5>Sunny</h5>
+                            <h3>{data.city}</h3>
+                            <h5>{data.weather[0].description}</h5>
                         </div>
                         <div className='cart_img'>
-                            <img src='icon/01d.png'></img>
+                            <img src={`icon/${data.weather[0].icon}.png`}></img>
                         </div>
                     </div>
                     <div className='cart_low'>
                         <div className='weather'>
-                            <h1>18°C</h1>
+                            <h1>{Math.round(data.main.temp)}°C</h1>
                         </div>
                         <div className='detalis'>
                             <div className='underline'>
@@ -40,19 +40,19 @@ const Cart = () => {
                             </div>
                             <div className='top'>
                                 <p>Feels like</p>
-                                <p>22°C</p>
+                                <p>{Math.round(data.main.feels_like)}°C</p>
                             </div>
                             <div className='top'>
                                 <p>Wind</p>
-                                <p>2 m/s</p>
+                                <p>{data.wind.speed} m/s</p>
                             </div>
                             <div className='top'>
                                 <p>Humidity</p>
-                                <p>15%</p>
+                                <p>{data.main.humidity}%</p>
                             </div>
                             <div className='top'>
                                 <p>Pressure</p>
-                                <p> 15hPa</p>
+                                <p>{data.main.pressure}hPa</p>
                             </div>
                         </div>
                     </div>
