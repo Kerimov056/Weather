@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import Search from './companent/search/Search';
 import Cart from './companent/weathercart/Cart';
+import Forecast from './companent/otherDays/Forecast';
 import {WEATHER_API,MY_API_KEY} from './companent/api'
 
 function App() {
@@ -12,8 +13,8 @@ function App() {
 
     const [lat, lon] = data.value.split(" ");
 
-   const weatherFetch = fetch(`${WEATHER_API}/weather?lat=${lat}&lon=${lon}&appid=${MY_API_KEY}&units=metric`);
-   const foresFetch = fetch(`${WEATHER_API}/forecast?lat=${lat}&lon=${lon}&appid=${MY_API_KEY}&units=metric`);
+   const weatherFetch = fetch(`${WEATHER_API}/weather?lat=${lat}&lon=${lon}&appid=${MY_API_KEY}&units=metric`); {/*bu birinci bu gunu esas olan ucundur */}
+   const foresFetch = fetch(`${WEATHER_API}/forecast?lat=${lat}&lon=${lon}&appid=${MY_API_KEY}&units=metric`);  {/*bu ise sonra'ki olanlar ucundur */}
 
    Promise.all([weatherFetch,foresFetch])
    .then(async (response) =>{
@@ -33,9 +34,10 @@ function App() {
     <>
      <Search  searchCountry = {searchData}/>
          <div className='app'>
-         { weather &&  <Cart data={weather} />}   {/* Burdada weatherin varligini yoxlayiriq */}
-        </div>                                    {/* Weather !== null ve weather !== undefined  */}
-                                                  {/* <Cart data={weather} Render olunur  */}
+         { weather &&  <Cart data={weather} />}          {/* Burdada weatherin varligini yoxlayiriq */}
+         {fores && <Forecast data={fores} />}     {/* Weather !== null ve weather !== undefined  */}
+       </div>                                          {/* <Cart data={weather} Render olunur  */}
+                                                  
     </>                                       
   );
 }
