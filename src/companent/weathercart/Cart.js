@@ -19,8 +19,8 @@ const Cart = () => {
                         <div className='weather'>
                             <h1>18°C</h1>
                         </div>
-                        <div>
-                            <div>
+                        <div className='detalis'>
+                            {/* <div className='underline'>
                                 <p>Detalis</p>
                                 <p></p>
                             </div>
@@ -39,7 +39,7 @@ const Cart = () => {
                             <div>
                                 <p>Pressure</p>
                                 <p> 15hPa</p>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>
