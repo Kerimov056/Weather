@@ -16,6 +16,23 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+
+            .name{
+
+                & > h3 {
+                    font-size: 17px;
+                    font-weight: 800;
+                    color: white;
+                    letter-spacing: -5px;
+                }
+
+                & > h5 {
+                    font-size: 12px;
+                    font-weight: 200;
+                    color: white;
+                    letter-spacing: -5px;
+                }
+            }
         }
     }
 }
