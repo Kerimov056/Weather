@@ -4,6 +4,8 @@ label {
     font-weight: 700;
 }
 
+
+//heftenin gunleri olanin on hisesi uzde olan yeni onun scss'i
 .on_esas {
     text-align: center;
     margin-top: 8px;
@@ -41,4 +43,53 @@ label {
             font-weight: 500;
         } 
     }
+}
+//-------------------------------------------------------
+//Alt panel yeni heftenin gunlerine click etdiyimiz zaman
+//olanin scss'i
+
+.panel{
+    margin-left: 20px;
+    width: 880px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .panel_left{
+        width: 50%;
+        height: 100%;
+        
+        & > div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+
+            & > span{
+                font-size: 16px;
+                font-weight: 400;
+            }
+        }
+        margin-right: 16px;
+        border-right: 1px solid black;
+    }
+
+    .panel_right{
+        width: 50%;
+        height: 100%;
+
+        & > div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+
+            & > span{
+                font-size: 16px;
+                font-weight: 400;
+            }
+        }
+        border-left: 1px solid black;
+    }    
 }

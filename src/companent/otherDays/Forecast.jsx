@@ -1,6 +1,6 @@
 import React from 'react'
 import './forecast.scss'
-import {Accordion,AccordionItem,AccordionItemHeading,AccordionItemButton} from "react-accessible-accordion";
+import {Accordion,AccordionItem,AccordionItemHeading,AccordionItemButton,AccordionItemPanel} from "react-accessible-accordion";
 
 
 const WEEK_DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
@@ -30,6 +30,38 @@ const Forecast = ({data}) => {
                                 </div>
                                 </AccordionItemButton>
                             </AccordionItemHeading>
+                            <AccordionItemPanel>
+                                <div className='panel'>
+                                    <div className='panel_left'>
+                                        <div>
+                                            <span>Presure:</span>
+                                            <span>{item.main.pressure}</span>
+                                        </div>
+                                        <div>
+                                            <span>Humidity:</span>
+                                            <span>{item.main.humidity}</span>
+                                        </div>
+                                        <div>
+                                            <span>Clouds:</span>
+                                            <span>{item.clouds.all}%</span>
+                                        </div>
+                                    </div>
+                                    <div className='panel_right'>
+                                        <div>
+                                            <span>Wind speed:</span>
+                                            <span>{item.wind.speed} m/s</span>
+                                        </div>
+                                        <div>
+                                            <span>Sea level:</span>
+                                            <span>{item.main.sea_level}m</span>
+                                        </div>
+                                        <div>
+                                            <span>Feels like:</span>
+                                            <span>{item.main.feels_like}°C</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </AccordionItemPanel>
                     </AccordionItem>
                 ))}
         </Accordion>
