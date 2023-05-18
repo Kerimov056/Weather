@@ -20,26 +20,26 @@ const Cart = () => {
                             <h1>18°C</h1>
                         </div>
                         <div className='detalis'>
-                            {/* <div className='underline'>
+                            <div className='underline'>
                                 <p>Detalis</p>
                                 <p></p>
                             </div>
-                            <div>
+                            <div className='top'>
                                 <p>Feels like</p>
                                 <p>22°C</p>
                             </div>
-                            <div>
+                            <div className='top'>
                                 <p>Wind</p>
                                 <p>2 m/s</p>
                             </div>
-                            <div>
+                            <div className='top'>
                                 <p>Humidity</p>
                                 <p>15%</p>
                             </div>
-                            <div>
+                            <div className='top'>
                                 <p>Pressure</p>
                                 <p> 15hPa</p>
-                            </div> */}
+                            </div> 
                         </div>
                     </div>
                 </div>
